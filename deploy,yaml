@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javawebapp
+  namespace: temp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: javawebapp
+  template:
+    metadata:
+      labels:
+        app: javawebapp
+    spec:
+      containers:
+        - name: app
+          image: sai05091990/web-app:7
+          ports:
+            - name: web
+              containerPort: 3000
+              protocol: TCP
+---
+# Node Port Service
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: javawebapp
+  name: javawebapp
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      name: http
+      targetPort: 3000
+    - port: 443
+      name: https
+      targetPort: 3000  
+  selector:
+    name: javawebapp
