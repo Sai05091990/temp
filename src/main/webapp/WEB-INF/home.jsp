@@ -21,12 +21,11 @@
 
 	</span>
 	<span style="font-weight: bold;">
-		Hello All
 	</span>
 </div>
 <hr>
-	<p> Service : <a href="${pageContext.request.contextPath}/services/getEmployeeDetails">Get Employee Details </p>
+	<p> Service : <a href="${pageContext.request.contextPath}/services/getEmployeeDetails">Contact us</p>
 <hr>
-<p align=center>Hello All.</p>
+<p align=center>Thank you</p>
 </body>
 </html>
